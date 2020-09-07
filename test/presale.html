@@ -66,7 +66,7 @@
     </nav>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/b">how to create a website for free</a></section><section class="services2 cid-s9UJOyCbbH mbr-parallax-background" id="services2-0">
+<section class="engine"><a href="https://mobirise.info/h">how to create a web page for free</a></section><section class="services2 cid-s9UJOyCbbH mbr-parallax-background" id="services2-0">
     <!---->
     
     <!---->
@@ -76,9 +76,13 @@
     <!--Container-->
     <div class="container">
         <div class="col-md-12">
-           <h2 class="mbr-title pt-2 mbr-fonts-style display-1">PRESALE<br><br></h2>
-             
+            
+          
+           <h2 class="mbr-title pt-2 mbr-fonts-style display-1">PRESALE<br></h2>
+            <div id="installmetamask" style="color:Red; display:block;">  <p class="mbr-text text1 pt-2 mbr-light mbr-fonts-style display-5">
+               <a href="https://www.tronlink.org/" target="_new" class="text-danger"><em>Please unlock your Tron wallet to start interacting</em></a></p></div> 
             <div class="media-container-row">
+            
                 <div class="align-left aside-content"><center>TRX<br><span class="input">
 		<input type="text" name="ETH" align="center" value="1000" style="text-align: center;" size="7">
 		<span></span>	
@@ -89,13 +93,13 @@
                  
                   <div class="mbr-section-text">
                      
-                        <p class="mbr-text text1 pt-2 mbr-light mbr-fonts-style display-7">Tier: 1<br><br>Price: 1 Candy / Trx<br><br>Remaining: <span id="available">-</span> Candy<br></p>
+                        <p class="mbr-text text1 pt-2 mbr-light mbr-fonts-style display-7"><br><br>Tier: 1<br><br>Price: 1 Candy / Trx<br><br>Remaining: <span id="available">-</span> Candy<br><br><br></p>
                         </div>
                     <!--Btn-->
                   
                     
                 </div>
-            </div>  <p class="mbr-text text3 pt-2 mbr-light mbr-fonts-style display-7"><br><br><em><br>My Wallet: <span id="mywalletbalance">-</span> TRX</em><em><br></em></p>
+            </div>  
         
         </div>
     </div>
@@ -112,7 +116,7 @@
         <div class="media-container-row">
             <div class="col-md-8 align-center">
                 
-              <center id="installmetamask" style="color:Red; display:block;"><p><a style="color:Red; font-style: italic; text-align: center;" href="https://www.tronlink.org/" target="_new"><br></a><br><a style="color:Red; font-style: italic; text-align: center;" href="https://www.tronlink.org/" target="_new">Please install/unlock your Tron wallet to start interacting.</a><br></p>  </center>
+            
                 <div class="social-list pl-0 mb-0">
                     <a href="https://t.me/candyswap" target="_blank">
                         <span class="px-2 mbr-iconfont mbr-iconfont-social socicon-telegram socicon"></span>
@@ -175,12 +179,10 @@ let MyContract = await tronWeb.contract().at(contractAddress);
  
 
   
-    let resss2=await MyContract.myWallet().call();
- // var _mybalance=window.tronWeb.toDecimal(resss2.balance._hex);
-  document.getElementById("mywalletbalance").innerHTML=roundToTwo(resss2/1000000);
-  
    
-  
+  let _price= await MyContract.price().call(); 
+    document.getElementById("price").innerHTML=roundToFour(_price/1000000);
+
   
   
   let _candybalance= await MyContract.candybalance().call(); 

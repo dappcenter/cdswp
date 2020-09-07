@@ -66,7 +66,7 @@
     </nav>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/a">online web builder</a></section><section class="services2 cid-s9UJOyCbbH mbr-parallax-background" id="services2-0">
+<section class="engine"><a href="https://mobirise.info/b">how to create a website for free</a></section><section class="services2 cid-s9UJOyCbbH mbr-parallax-background" id="services2-0">
     <!---->
     
     <!---->
@@ -79,7 +79,7 @@
            <h2 class="mbr-title pt-2 mbr-fonts-style display-1">PRESALE<br><br></h2>
              
             <div class="media-container-row">
-                <div class="align-left aside-content"> <br>  <center>TRX<br><span class="input">
+                <div class="align-left aside-content"><center>TRX<br><span class="input">
 		<input type="text" name="ETH" align="center" value="1000" style="text-align: center;" size="7">
 		<span></span>	
                        </span> </center> <div class="mbr-section-btn pt-3 align-left"><a onclick="invest()" class="btn btn-secondary display-7">
@@ -89,7 +89,7 @@
                  
                   <div class="mbr-section-text">
                      
-                        <p class="mbr-text text1 pt-2 mbr-light mbr-fonts-style display-7">Tier: 1<br><br>Price: 1 Candy / Trx<br><br>Remaining: - Candy<br></p>
+                        <p class="mbr-text text1 pt-2 mbr-light mbr-fonts-style display-7">Tier: 1<br><br>Price: 1 Candy / Trx<br><br>Remaining: <span id="available">-</span> Candy<br></p>
                         </div>
                     <!--Btn-->
                   
@@ -112,6 +112,7 @@
         <div class="media-container-row">
             <div class="col-md-8 align-center">
                 
+              <center id="installmetamask" style="color:Red; display:block;"><p><a style="color:Red; font-style: italic; text-align: center;" href="https://www.tronlink.org/" target="_new"><br></a><br><a style="color:Red; font-style: italic; text-align: center;" href="https://www.tronlink.org/" target="_new">Please install/unlock your Tron wallet to start interacting.</a><br></p>  </center>
                 <div class="social-list pl-0 mb-0">
                     <a href="https://t.me/candyswap" target="_blank">
                         <span class="px-2 mbr-iconfont mbr-iconfont-social socicon-telegram socicon"></span>
@@ -132,6 +133,111 @@
             </div>
         </div>
     </div>
+   <script>
+var started=0;	
+
+
+function getUrlVars() {
+			var vars = {};
+			var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+				vars[key] = value;
+			});
+	return vars;
+}
+	
+
+function roundToFour(num) {
+	return +(Math.floor(num + "e+4") + "e-4");
+}
+function roundToTwo(num) {
+	return +(Math.floor(num + "e+2") + "e-2");
+}
+function round(num) {
+	return +(Math.floor(num + "e+0") + "e-0");
+}
+  
+
+var contractAddress='TXeg4F1o8QcNcEWwoqBSb5ayk8FfKdrLbH';
+
+
+
+  var toinvest=0;
+  var myaddress;
+
+
+
+
+    
+async function start() {
+started=1;
+  
+let MyContract = await tronWeb.contract().at(contractAddress);
+ 
+
+  
+    let resss2=await MyContract.myWallet().call();
+ // var _mybalance=window.tronWeb.toDecimal(resss2.balance._hex);
+  document.getElementById("mywalletbalance").innerHTML=roundToTwo(resss2/1000000);
+  
+   
+  
+  
+  
+  let _candybalance= await MyContract.candybalance().call(); 
+    document.getElementById("available").innerHTML=roundToTwo(_candybalance/1000000);
+
+
+ 
+}
+    
+   async function invest() {
+	if(started>0){	
+
+    var tosend = parseFloat(document.getElementsByName('ETH')[0].value*1000000);
+
+if(tosend>=100000000){
+console.log(_refaddr);
+	
+  let contractInstance = await tronWeb.contract().at(contractAddress);
+	
+	let args = {
+		callValue: window.tronWeb.toHex(round(tosend)),
+      	feeLimit: 10000000,
+		shouldPollResponse: true
+	};
+      
+let result = await contractInstance.buy().send(args);
+      start();
+} else alert('Minimum Investment is 100 TRX');
+} else alert ('Please unlock your Tron Wallet');
+}
+      
+    
+ 
+      
+    
+   
+    
+    
+    
+    
+accountInterval2 = setInterval(function () {
+  if(myaddress==false&&tronWeb.defaultAddress.base58 != false) location.reload();
+    
+    if(myaddress!=tronWeb.defaultAddress.base58){
+        myaddress = tronWeb.defaultAddress.base58;
+			
+}
+  
+	if (typeof window.tronWeb !== 'undefined'){		
+
+  if(tronWeb.defaultAddress.base58 != false){
+document.getElementById("installmetamask").style.display = "none";
+  console.log('started');
+   start();
+}}
+}, 2000);   
+  </script>
 </section>
 
 

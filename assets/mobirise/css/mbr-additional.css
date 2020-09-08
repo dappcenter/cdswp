@@ -2397,6 +2397,54 @@ section.lazy-placeholder:after {
 .cid-sa1wVYXhGW .social-list a:focus {
   text-decoration: none;
 }
+.cid-sa1MZ4eO16 {
+  padding-top: 105px;
+  padding-bottom: 105px;
+  background-image: url("../../../assets/images/540356-popular-candyland-background-2476x2116-for-samsung.jpeg");
+}
+.cid-sa1MZ4eO16 .card-box {
+  padding: 1rem 2rem 2rem;
+}
+.cid-sa1MZ4eO16 h4 {
+  font-weight: 500;
+  margin-bottom: 0;
+  text-align: left;
+  padding-top: 2rem;
+}
+.cid-sa1MZ4eO16 p {
+  margin-bottom: 0;
+  text-align: left;
+  padding-top: 1.5rem;
+}
+.cid-sa1MZ4eO16 .mbr-section-btn {
+  padding-top: 2.5rem;
+}
+.cid-sa1MZ4eO16 .mbr-section-btn a {
+  margin: 0;
+}
+.cid-sa1MZ4eO16 .mbr-text {
+  color: #767676;
+}
+.cid-sa1MZ4eO16 .card-wrapper {
+  height: 100%;
+}
+@media (max-width: 767px) {
+  .cid-sa1MZ4eO16 .card:not(.last-child) {
+    padding-bottom: 2rem;
+  }
+}
+.cid-sa1MZ4eO16 H2 {
+  color: #ff52a8;
+  text-align: center;
+}
+.cid-sa1MZ4eO16 .mbr-text,
+.cid-sa1MZ4eO16 .mbr-section-btn {
+  text-align: center;
+  color: #232323;
+}
+.cid-sa1MZ4eO16 .card-title {
+  text-align: center;
+}
 .cid-sa1DwjM5AP .navbar {
   padding: .5rem 0;
   background: #333333;
@@ -2803,151 +2851,6 @@ section.lazy-placeholder:after {
 .cid-sa1DwjM5AP .nav-link:hover,
 .cid-sa1DwjM5AP .dropdown-item:hover {
   color: #c1c1c1 !important;
-}
-.cid-sa1DwkvQRU {
-  padding-top: 105px;
-  padding-bottom: 105px;
-  background-image: url("../../../assets/images/540356-popular-candyland-background-2476x2116-for-samsung.jpg");
-}
-.cid-sa1DwkvQRU .mbr-section-btn > * {
-  margin: 0;
-}
-.cid-sa1DwkvQRU h4 {
-  font-weight: 500;
-}
-.cid-sa1DwkvQRU p {
-  color: #232323;
-}
-.cid-sa1DwkvQRU .aside-content {
-  -webkit-flex-basis: 100%;
-  flex-basis: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.cid-sa1DwkvQRU .block-content {
-  display: -webkit-flex;
-  flex-direction: column;
-  -webkit-flex-direction: column;
-  word-break: break-word;
-}
-.cid-sa1DwkvQRU .media {
-  margin: initial;
-  align-items: center;
-  -webkit-align-items: center;
-}
-.cid-sa1DwkvQRU .mbr-figure {
-  align-self: flex-start;
-  -webkit-align-self: flex-start;
-  -webkit-flex-shrink: 0;
-  flex-shrink: 0;
-}
-.cid-sa1DwkvQRU .card-img {
-  padding-right: 2rem;
-  width: auto;
-}
-.cid-sa1DwkvQRU .card-img span {
-  font-size: 72px;
-  color: #707070;
-}
-@media (min-width: 992px) {
-  .cid-sa1DwkvQRU .mbr-figure {
-    padding-right: 4rem;
-    padding-right: 0;
-    padding-left: 4rem;
-  }
-  .cid-sa1DwkvQRU .media-container-row {
-    -webkit-flex-direction: row-reverse;
-  }
-}
-@media (max-width: 991px) {
-  .cid-sa1DwkvQRU .mbr-figure {
-    padding-right: 0;
-    padding-bottom: 1rem;
-    margin-bottom: 2rem;
-    padding-bottom: 0;
-    margin-bottom: 0;
-    padding-top: 1rem;
-    margin-top: 2rem;
-  }
-  .cid-sa1DwkvQRU .media-container-row {
-    -webkit-flex-direction: column-reverse;
-  }
-}
-@media (max-width: 300px) {
-  .cid-sa1DwkvQRU .card-img span {
-    font-size: 40px !important;
-  }
-}
-.cid-sa1DwkvQRU .cost {
-  text-decoration: line-through;
-  color: #767676;
-}
-.cid-sa1DwkvQRU .text1 {
-  text-align: center;
-  color: #ff3366;
-}
-.cid-sa1DwkvQRU .text2,
-.cid-sa1DwkvQRU .mbr-section-btn {
-  color: #099b00;
-  text-align: center;
-}
-.cid-sa1DwkvQRU H2 {
-  text-align: center;
-  color: #ff52a8;
-}
-.cid-sa1DwkvQRU .text3 {
-  text-align: center;
-  color: #55b4d4;
-}
-.cid-sa1DwkvQRU .text4,
-.cid-sa1DwkvQRU .mbr-section-btn {
-  text-align: center;
-  color: #149dcc;
-}
-.cid-sa1DwkvQRU .input {
-  position: relative;
-  font-size: 2em;
-  background: linear-gradient(21deg, #ff52a8, #de52ff 1f);
-  padding: 3px;
-  display: inline-block;
-  border-radius: 9999em;
-}
-.cid-sa1DwkvQRU .input *:not(span) {
-  position: relative;
-  display: inherit;
-  border-radius: inherit;
-  margin: 0;
-  border: none;
-  outline: none;
-  padding: 0 0.325em;
-  z-index: 1;
-}
-.cid-sa1DwkvQRU .input *:not(span):focus + span {
-  opacity: 1;
-  transform: scale(1);
-}
-.cid-sa1DwkvQRU .input span {
-  transform: scale(0.993, 0.94);
-  transition: transform 0.5s, opacity 0.25s;
-  opacity: 0;
-  position: absolute;
-  z-index: 0;
-  margin: 4px;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  box-shadow: inset 0 0 0 3px #ffffff, 0 0 0 4px #ffffff, 3px -3px 30px #1beabd, -3px 3px 30px #10abff;
-}
-.cid-sa1DwkvQRU P {
-  text-align: right;
-  color: #ff3366;
-}
-.cid-sa1DwkvQRU .text2 {
-  color: #099b00;
 }
 .cid-sa1Dwl6Jvi {
   padding-top: 45px;

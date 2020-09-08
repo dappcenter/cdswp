@@ -66,7 +66,7 @@
     </nav>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/d">web maker</a></section><section class="services2 cid-sa1WtQ1I9j mbr-parallax-background" id="services2-j">
+<section class="engine"><a href="https://mobirise.info/m">website design templates</a></section><section class="services2 cid-sa1WtQ1I9j mbr-parallax-background" id="services2-j">
     <!---->
     
     <!---->
@@ -86,7 +86,9 @@
                 <div class="align-center aside-content">
                     <p class="mbr-text text2 pt-2 mbr-light mbr-fonts-style display-2">-</p>
                      <p class="mbr-text text3 pt-2 mbr-light mbr-fonts-style display-4"><span id="staked">Candy/Trx Staked</span></p>
-                    <div class="mbr-section-btn pt-3 align-left"><a class="btn btn-black-outline display-4" href="farms.html">Approve&nbsp;Candy/Trx</a></div>
+                    <div style="display:block;" class="mbr-section-btn pt-3 align-left"><a class="btn btn-black-outline display-4" onclick="approvego()">Approve&nbsp;Candy/Trx</a></div>
+                   <div style="display:none;" class="mbr-section-btn pt-3 align-left"><a class="btn btn-black-outline display-4" onclick="stake()">Stake</a></div>
+                  
                  <br> <br> 
                </div>
                 <div class="align-center aside-content">
@@ -95,7 +97,7 @@
                      
                         <p class="mbr-text text2 pt-2 mbr-light mbr-fonts-style display-2">-</p>
                              <p class="mbr-text text3 pt-2 mbr-light mbr-fonts-style display-4"><span id="earned">Candy Earned</span></p>
-                      <div class="mbr-section-btn pt-3 align-left"><a class="btn btn-black-outline display-4" href="farms.html">Harvest</a></div>
+                      <div class="mbr-section-btn pt-3 align-left"><a class="btn btn-black-outline display-4" onclick="harvest()">Harvest</a></div>
                         </div>
                     <!--Btn-->
                  
@@ -105,7 +107,7 @@
             </div>  
            <br> 
            <div class="media-container-row">
-        <div class="mbr-section-btn pt-3 align-left"><a class="btn btn-black-outline display-4" href="farms.html">Harvest &amp; Unstake</a></div>
+        <div class="mbr-section-btn pt-3 align-left"><a class="btn btn-black-outline display-4" onclick="unstake()">Harvest &amp; Unstake</a></div>
                 </div>  
         </div>
     </div>
@@ -173,7 +175,7 @@ var contractAddressFarm='TWPdhbsXMLHJ6hZohKJSAvsnqtHhPpHWKD';
 
   var toinvest=0;
   var myaddress;
-
+var approvedLP=0;
 
 
 
@@ -184,8 +186,15 @@ started=1;
 let MyContract = await tronWeb.contract().at(contractAddress);
 let MyContractFarm = await tronWeb.contract().at(contractAddressFarm); 
 
-  
+
+   let approved= await MyContract.allowance(myaddress,contractAddress).call(); 
+     approved=window.tronWeb.toDecimal(approved.remaining._hex);
    
+  if(approved>window.tronWeb.toHex(100000000000000))approvedyes();
+	else approvedno();
+
+
+  
   let earned= await MyContractFarm.checkinterests().call(); 
     document.getElementById("earned").innerHTML=roundToFour(earned/1000000);
 
@@ -207,11 +216,63 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
     
   
       
-    
+  async function approvedyes() {
+    if(approvedLP==0){
+      document.getElementById("approvedno").style.display = "none";
+      document.getElementById("approvedyes").style.display = "block";
+      approvedLP=1;
+    }
+  }
+     
+     async function approvedno() {
+      if(approvedLP==1){
+      document.getElementById("approvedno").style.display = "block";
+      document.getElementById("approvedyes").style.display = "none";
+      approvedLP=0;
+    }
+  }
  
-      
+async function approvego() {
+  let MyContract = await tronWeb.contract().at(contractAddress);
+  let args = {
+		callValue: 0,
+		shouldPollResponse: true
+	};
+     await MyContract.approve(contractAddress,window.tronWeb.toHex(1000000000000000)).send(args);	
+  } 
+
+     async function stake() {
+ 
+let MyContractFarm = await tronWeb.contract().at(contractAddressFarm); 
+       
+  let args = {
+		callValue: 0,
+		shouldPollResponse: true
+	};
+     await MyContractFarm.Stake().send(args);	
+  } 
     
+    async function unstake() {
+ 
+let MyContractFarm = await tronWeb.contract().at(contractAddressFarm); 
+       
+  let args = {
+		callValue: 0,
+		shouldPollResponse: true
+	};
+     await MyContractFarm.unStake().send(args);	
+  } 
    
+      async function harvest() {
+ 
+let MyContractFarm = await tronWeb.contract().at(contractAddressFarm); 
+       
+  let args = {
+		callValue: 0,
+		shouldPollResponse: true
+	};
+     await MyContractFarm.withdraw().send(args);	
+  } 
     
     
     

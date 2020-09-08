@@ -10,7 +10,7 @@
   <meta property="og:image" content="assets/images/candytrx1-meta.jpeg">
   <meta name="twitter:title" content="🍭 Candy/Trx LP 🍬">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="assets/images/pink-candy-hi.png" type="image/x-icon">
+  <link rel="shortcut icon" href="assets/images/logo4.png" type="image/x-icon">
   <meta name="description" content="CandySwap.link Sweet Farming">
   
   <title>🍭 Candy/Trx LP 🍬</title>
@@ -66,7 +66,7 @@
     </nav>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/u">bootstrap website templates</a></section><section class="services2 cid-sa1WtQ1I9j mbr-parallax-background" id="services2-j">
+<section class="engine"><a href="https://mobirise.info/d">web maker</a></section><section class="services2 cid-sa1WtQ1I9j mbr-parallax-background" id="services2-j">
     <!---->
     
     <!---->
@@ -80,12 +80,12 @@
           
            <h2 class="mbr-title pt-2 mbr-fonts-style display-5">CANDY / TRX LP</h2>
             <div id="installmetamask" style="color:Red; display:block;">  <p class="mbr-text text1 pt-2 mbr-light mbr-fonts-style display-7">
-               <a href="https://www.tronlink.org/" target="_new"><em>Please unlock your Tron wallet to start interacting</em></a></p></div> <br>  <p class="mbr-text text4 pt-2 mbr-light mbr-fonts-style display-4">Deposit CANDY/TRX LP and earn CANDY<br>Daily Roi: 15%<br><br>Ends in: -:-:-<br></p>
+               <a href="https://www.tronlink.org/" target="_new"><em>Please unlock your Tron wallet to start interacting</em></a></p></div> <br>  <p class="mbr-text text4 pt-2 mbr-light mbr-fonts-style display-4">Deposit CANDY/TRX LP and earn CANDY<br>Daily Roi: 15%<br><br>Ends in: <span id="countdown">-:-:-:-</span><br></p>
             <div class="media-container-row">
            
                 <div class="align-center aside-content">
                     <p class="mbr-text text2 pt-2 mbr-light mbr-fonts-style display-2">-</p>
-                     <p class="mbr-text text3 pt-2 mbr-light mbr-fonts-style display-4"><span id="totalsupply">Candy/Trx Staked</span></p>
+                     <p class="mbr-text text3 pt-2 mbr-light mbr-fonts-style display-4"><span id="staked">Candy/Trx Staked</span></p>
                     <div class="mbr-section-btn pt-3 align-left"><a class="btn btn-black-outline display-4" href="farms.html">Approve&nbsp;Candy/Trx</a></div>
                  <br> <br> 
                </div>
@@ -94,7 +94,7 @@
                   <div class="mbr-section-text">
                      
                         <p class="mbr-text text2 pt-2 mbr-light mbr-fonts-style display-2">-</p>
-                             <p class="mbr-text text3 pt-2 mbr-light mbr-fonts-style display-4"><span id="mybalance">Candy Earned</span></p>
+                             <p class="mbr-text text3 pt-2 mbr-light mbr-fonts-style display-4"><span id="earned">Candy Earned</span></p>
                       <div class="mbr-section-btn pt-3 align-left"><a class="btn btn-black-outline display-4" href="farms.html">Harvest</a></div>
                         </div>
                     <!--Btn-->
@@ -167,8 +167,8 @@ function round(num) {
 }
   
 
-var contractAddress='TEz1qbbCMKojtuMtweTq2PVSL5Lvk7ZKjE';
-
+var contractAddress='TSTWG4e3XwSqE2mF65Z6zBmjRP4wCM3nku';
+var contractAddressFarm='TWPdhbsXMLHJ6hZohKJSAvsnqtHhPpHWKD';
 
 
   var toinvest=0;
@@ -182,19 +182,26 @@ async function start() {
 started=1;
   
 let MyContract = await tronWeb.contract().at(contractAddress);
- 
+let MyContractFarm = await tronWeb.contract().at(contractAddressFarm); 
 
-  /*
+  
    
-  let totalsupply= await MyContract.totalSupply().call(); 
-    document.getElementById("totalsupply").innerHTML=roundToFour(totalsupply/1000000);
+  let earned= await MyContractFarm.checkinterests().call(); 
+    document.getElementById("earned").innerHTML=roundToFour(earned/1000000);
 
   
   
-  let mybalance= await MyContract.balanceOf(myaddress).call(); 
-    document.getElementById("mybalance").innerHTML=roundToTwo(mybalance/1000000);
+  let staked= await MyContractFarm.staked(myaddress).call(); 
+    document.getElementById("staked").innerHTML=roundToFour(staked/1000000);
 
-*/
+  
+   let checkcountdown= await MyContractFarm.countdown().call(); 
+ var days = Math.floor(checkcountdown / (60 * 60 * 24));
+  var hours = Math.floor((checkcountdown % (60 * 60 * 24)) / (60 * 60));
+	var minutes = Math.floor((checkcountdown % (60 * 60)) / (60));
+	var seconds = Math.floor((checkcountdown % (60)));
+				document.getElementById("countdown").innerHTML = ('0' + days).slice(-2) + ":"+ ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
+
  
 }
     

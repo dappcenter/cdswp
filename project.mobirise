@@ -34,7 +34,13 @@
     },
     "path": "@PROJECT_PATH@",
     "versionFirst": "5.0.25",
-    "siteFonts": [],
+    "siteFonts": [
+      {
+        "css": "'Jost', sans-serif",
+        "name": "Jost",
+        "url": "https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i"
+      }
+    ],
     "imageResize": false,
     "cssOptimize": true,
     "lazyLoad": false,
@@ -49,7 +55,8 @@
     "global_header_custom": "<!-- Google Tag Manager -->\n<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\nnew Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\nj=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n})(window,document,'script','dataLayer','GTM-P4FGX7B');</script>\n<!-- End Google Tag Manager -->",
     "gdpr": false,
     "uniqCompNum": 12,
-    "versionPublish": "5.0.25"
+    "versionPublish": "5.0.25",
+    "screenshot": "screenshot.png"
   },
   "pages": {
     "index.html": {

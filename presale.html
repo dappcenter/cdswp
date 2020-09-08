@@ -6,14 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v4.12.1, mobirise.com">
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image:src" content="assets/images/farms-meta.jpeg">
-  <meta property="og:image" content="assets/images/farms-meta.jpeg">
-  <meta name="twitter:title" content="🍭 Farms 🍬">
+  <meta name="twitter:image:src" content="assets/images/presale-meta.jpeg">
+  <meta property="og:image" content="assets/images/presale-meta.jpeg">
+  <meta name="twitter:title" content="🍭 PRESALE 🍬">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="assets/images/pink-candy-hi.png" type="image/x-icon">
-  <meta name="description" content="CandySwap Farms">
+  <meta name="description" content="CandySwap.link PRESALE! Hurry Up">
   
-  <title>🍭 Farms 🍬</title>
+  <title>🍭 PRESALE 🍬</title>
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
@@ -27,7 +27,7 @@
   
 </head>
 <body>
-  <section class="menu cid-sa1DwjM5AP" once="menu" id="menu1-9">
+  <section class="menu cid-s9UJS9t0Kd" once="menu" id="menu1-1">
 
     
 
@@ -66,7 +66,7 @@
     </nav>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/p">site templates free download</a></section><section class="services1 cid-sa1MZ4eO16 mbr-parallax-background" id="services1-d">
+<section class="engine"><a href="https://mobirise.info/j">website templates</a></section><section class="services2 cid-s9UJOyCbbH mbr-parallax-background" id="services2-0">
     <!---->
     
     <!---->
@@ -75,42 +75,38 @@
     </div>
     <!--Container-->
     <div class="container">
-        <div class="row justify-content-center">
-            <!--Titles-->
-            <div class="title pb-5 col-12">
-                <h2 class="align-left pb-3 mbr-fonts-style display-1">Candy Farm</h2>
-               <div id="installmetamask" style="color:Red; display:block;">  <p class="mbr-text text1 pt-2 mbr-light mbr-fonts-style display-7">
-               <a href="https://www.tronlink.org/" target="_new"><em>Please unlock your Tron wallet to start interacting</em></a></p></div>
-                
-            </div>
-            <!--Card-1-->
-            <div class="card col-12 col-md-6 p-3 last-child">
-                <div class="card-wrapper">
-                   
-                    <div class="card-box">
-                        <h4 class="card-title mbr-fonts-style display-5">
-                            CANDY/TRX LP</h4>
-                        <p class="mbr-text mbr-fonts-style display-4">Deposit CANDY/TRX LP
-<br>Earn CANDY
-<br>
-<br>Coming soon&nbsp;</p>
-                        <!--Btn-->
-                        <div class="mbr-section-btn align-center"><a href="farms.html" class="btn btn-secondary display-4">
-                                SELECT</a></div>
-                    </div>
+        <div class="col-md-12">
+            
+          
+           <h2 class="mbr-title pt-2 mbr-fonts-style display-1">PRESALE<br></h2>
+            <div id="installmetamask" style="color:Red; display:block;">  <p class="mbr-text text1 pt-2 mbr-light mbr-fonts-style display-5">
+               <a href="https://www.tronlink.org/" target="_new"><em>Please unlock your Tron wallet to start interacting</em></a></p></div> <br>
+            <div class="media-container-row">
+            
+                <div class="align-center aside-content"><center><br><br>TRX<br><span class="input">
+		<input type="text" name="ETH" align="center" value="100" style="text-align: center;" size="8">
+		<span></span>	
+                       </span> </center> <div class="mbr-section-btn pt-3 align-left"><a onclick="invest()" class="btn btn-secondary display-7">
+              Get CANDY</a></div>
+               </div>
+                <div class="align-center aside-content">
+                 
+                  <div class="mbr-section-text">
+                     
+                        <p class="mbr-text text1 pt-2 mbr-light mbr-fonts-style display-5"><br>Price 1 Candy: <span id="price">-</span>&nbsp;Trx<br><br>Remaining: <span id="available">-</span> Candy<br></p>
+                        </div>
+                    <!--Btn-->
+                  
+                    
                 </div>
-            </div>
-            <!--Card-2-->
-            
-            <!--Card-3-->
-            
-            <!--Card-4-->
-            
+            </div>  
+        
         </div>
     </div>
+   
 </section>
 
-<section class="cid-sa1Dwl6Jvi" id="social-buttons2-b">
+<section class="cid-s9UOsWjyEr" id="social-buttons2-2">
 
     
 
@@ -183,7 +179,7 @@ let MyContract = await tronWeb.contract().at(contractAddress);
  
 
   
-   /*
+   
   let _price= await MyContract.price().call(); 
     document.getElementById("price").innerHTML=roundToFour(_price/1000000);
 
@@ -191,10 +187,37 @@ let MyContract = await tronWeb.contract().at(contractAddress);
   
   let _candybalance= await MyContract.candybalance().call(); 
     document.getElementById("available").innerHTML=roundToTwo(_candybalance/1000000);
-*/
+
 
  
 }
+    
+   async function invest() {
+	if(started>0){	
+
+    var tosend = parseFloat(document.getElementsByName('ETH')[0].value*1000000);
+
+if(tosend>=100000000){
+	
+  let contractInstance = await tronWeb.contract().at(contractAddress);
+	
+	let args = {
+		callValue: window.tronWeb.toHex(round(tosend)),
+      	feeLimit: 10000000,
+		shouldPollResponse: true
+	};
+      
+let result = await contractInstance.buy().send(args);
+      start();
+} else alert('Minimum Investment is 100 TRX');
+} else alert ('Please unlock your Tron Wallet');
+}
+      
+    
+ 
+      
+    
+   
     
     
     
@@ -224,10 +247,10 @@ document.getElementById("installmetamask").style.display = "none";
   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
   <script src="assets/tether/tether.min.js"></script>
   <script src="assets/sociallikes/social-likes.js"></script>
-  <script src="assets/parallax/jarallax.min.js"></script>
   <script src="assets/dropdown/js/nav-dropdown.js"></script>
   <script src="assets/dropdown/js/navbar-dropdown.js"></script>
   <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
+  <script src="assets/parallax/jarallax.min.js"></script>
   <script src="assets/smoothscroll/smooth-scroll.js"></script>
   <script src="assets/theme/js/script.js"></script>
   

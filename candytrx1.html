@@ -6,14 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v4.12.1, mobirise.com">
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image:src" content="assets/images/candytrx1-meta.jpeg">
-  <meta property="og:image" content="assets/images/candytrx1-meta.jpeg">
-  <meta name="twitter:title" content="🍭 Candy/Trx LP 🍬">
+  <meta name="twitter:image:src" content="assets/images/candy1-meta.jpeg">
+  <meta property="og:image" content="assets/images/candy1-meta.jpeg">
+  <meta name="twitter:title" content="🍭 Candy Farm 🍬">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="assets/images/favicon-128x131-1.png" type="image/x-icon">
   <meta name="description" content="CandySwap.link Sweet Farming">
   
-  <title>🍭 Candy/Trx LP 🍬</title>
+  <title>🍭 Candy Farm 🍬</title>
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
@@ -66,7 +66,7 @@
     </nav>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/w">html5 templates</a></section><section class="services2 cid-sa1WtQ1I9j mbr-parallax-background" id="services2-j">
+<section class="engine"><a href="https://mobirise.info/k">develop own website</a></section><section class="services2 cid-sa1WtQ1I9j mbr-parallax-background" id="services2-j">
     <!---->
     
     <!---->
@@ -78,16 +78,16 @@
         <div class="col-md-12">
             
           
-           <h2 class="mbr-title pt-2 mbr-fonts-style display-5">CANDY / TRX LP</h2>
+           <h2 class="mbr-title pt-2 mbr-fonts-style display-5">CANDY FARM</h2>
             <div id="installmetamask" style="color:Red; display:block;">  <p class="mbr-text text1 pt-2 mbr-light mbr-fonts-style display-7">
-               <a href="https://www.tronlink.org/" target="_new"><em>Please unlock your Tron wallet to start interacting</em></a></p></div> <br>  <p class="mbr-text text4 pt-2 mbr-light mbr-fonts-style display-4">Deposit CANDY/TRX LP and earn CANDY<br>Daily Roi: 15%<br><br>Ends in: <span id="countdown">-:-:-:-</span><br></p>
+               <a href="https://www.tronlink.org/" target="_new"><em>Please unlock your Tron wallet to start interacting</em></a></p></div> <br>  <p class="mbr-text text4 pt-2 mbr-light mbr-fonts-style display-4">Deposit CANDY and earn CANDY<br>Daily Roi: 7%<br><br>Ends in: <span id="countdown">-:-:-:-</span><br></p>
             <div class="media-container-row">
            
                 <div class="align-center aside-content">
-                    <p class="mbr-text text2 pt-2 mbr-light mbr-fonts-style display-2">-</p>
-                     <p class="mbr-text text3 pt-2 mbr-light mbr-fonts-style display-4"><span id="staked">Candy/Trx Staked</span></p>
-                    <div style="display:block;" class="mbr-section-btn pt-3 align-left"><a class="btn btn-black-outline display-4" onclick="approvego()">Approve&nbsp;Candy/Trx</a></div>
-                   <div style="display:none;" class="mbr-section-btn pt-3 align-left"><a class="btn btn-black-outline display-4" onclick="stake()">Stake</a></div>
+                    <p class="mbr-text text2 pt-2 mbr-light mbr-fonts-style display-2"><span id="staked">-</span></p>
+                     <p class="mbr-text text3 pt-2 mbr-light mbr-fonts-style display-4">Candy Staked</p>
+                  <div id="approvedno" style="display:block;">    <div class="mbr-section-btn pt-3 align-left"><a class="btn btn-black-outline display-4" onclick="approvego()">Approve&nbsp;Candy/Trx</a></div></div>
+                   <div id="approvedyes" style="display:none;"><div class="mbr-section-btn pt-3 align-left"><a class="btn btn-black-outline display-4" onclick="stake()">Stake</a></div></div>
                   
                  <br> <br> 
                </div>
@@ -95,8 +95,8 @@
                  
                   <div class="mbr-section-text">
                      
-                        <p class="mbr-text text2 pt-2 mbr-light mbr-fonts-style display-2">-</p>
-                             <p class="mbr-text text3 pt-2 mbr-light mbr-fonts-style display-4"><span id="earned">Candy Earned</span></p>
+                        <p class="mbr-text text2 pt-2 mbr-light mbr-fonts-style display-2"><span id="earned">-</span></p>
+                             <p class="mbr-text text3 pt-2 mbr-light mbr-fonts-style display-4">Candy Earned</p>
                       <div class="mbr-section-btn pt-3 align-left"><a class="btn btn-black-outline display-4" onclick="harvest()">Harvest</a></div>
                         </div>
                     <!--Btn-->
@@ -168,19 +168,18 @@ function round(num) {
 	return +(Math.floor(num + "e+0") + "e-0");
 }
   
+     function roundToSix(num) {
+	return +(Math.floor(num + "e+6") + "e-6");
+}
 
-const contract = {
-    "CreatedByContract": {
-        "address": "TSTWG4e3XwSqE2mF65Z6zBmjRP4wCM3nku",
-        "abi": [{"constant":false,"inputs":[{"name":"tokens_sold","type":"uint256"},{"name":"min_trx","type":"uint256"},{"name":"deadline","type":"uint256"},{"name":"recipient","type":"address"}],"name":"tokenToTrxTransferInput","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"spender","type":"address"},{"name":"value","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"trx_bought","type":"uint256"},{"name":"max_tokens","type":"uint256"},{"name":"deadline","type":"uint256"},{"name":"recipient","type":"address"}],"name":"tokenToTrxTransferOutput","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"from","type":"address"},{"name":"to","type":"address"},{"name":"value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"spender","type":"address"},{"name":"addedValue","type":"uint256"}],"name":"increaseAllowance","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"min_liquidity","type":"uint256"},{"name":"max_tokens","type":"uint256"},{"name":"deadline","type":"uint256"}],"name":"addLiquidity","outputs":[{"name":"","type":"uint256"}],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"min_tokens","type":"uint256"},{"name":"deadline","type":"uint256"}],"name":"trxToTokenSwapInput","outputs":[{"name":"","type":"uint256"}],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"token_addr","type":"address"}],"name":"setup","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"tokens_bought","type":"uint256"},{"name":"deadline","type":"uint256"},{"name":"recipient","type":"address"}],"name":"trxToTokenTransferOutput","outputs":[{"name":"","type":"uint256"}],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[{"name":"input_amount","type":"uint256"},{"name":"input_reserve","type":"uint256"},{"name":"output_reserve","type":"uint256"}],"name":"getInputPrice","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"tokens_sold","type":"uint256"}],"name":"getTokenToTrxInputPrice","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"factoryAddress","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"trx_sold","type":"uint256"}],"name":"getTrxToTokenInputPrice","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"tokens_bought","type":"uint256"},{"name":"max_tokens_sold","type":"uint256"},{"name":"max_trx_sold","type":"uint256"},{"name":"deadline","type":"uint256"},{"name":"recipient","type":"address"},{"name":"exchange_addr","type":"address"}],"name":"tokenToExchangeTransferOutput","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"tokens_sold","type":"uint256"},{"name":"min_trx","type":"uint256"},{"name":"deadline","type":"uint256"}],"name":"tokenToTrxSwapInput","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"trx_bought","type":"uint256"},{"name":"max_tokens","type":"uint256"},{"name":"deadline","type":"uint256"}],"name":"tokenToTrxSwapOutput","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"tokenAddress","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"spender","type":"address"},{"name":"subtractedValue","type":"uint256"}],"name":"decreaseAllowance","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"tokens_bought","type":"uint256"}],"name":"getTrxToTokenOutputPrice","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"tokens_bought","type":"uint256"},{"name":"deadline","type":"uint256"}],"name":"trxToTokenSwapOutput","outputs":[{"name":"","type":"uint256"}],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"to","type":"address"},{"name":"value","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"tokens_bought","type":"uint256"},{"name":"max_tokens_sold","type":"uint256"},{"name":"max_trx_sold","type":"uint256"},{"name":"deadline","type":"uint256"},{"name":"token_addr","type":"address"}],"name":"tokenToTokenSwapOutput","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"tokens_sold","type":"uint256"},{"name":"min_tokens_bought","type":"uint256"},{"name":"min_trx_bought","type":"uint256"},{"name":"deadline","type":"uint256"},{"name":"exchange_addr","type":"address"}],"name":"tokenToExchangeSwapInput","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"min_tokens","type":"uint256"},{"name":"deadline","type":"uint256"},{"name":"recipient","type":"address"}],"name":"trxToTokenTransferInput","outputs":[{"name":"","type":"uint256"}],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[{"name":"owner","type":"address"},{"name":"spender","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"tokens_sold","type":"uint256"},{"name":"min_tokens_bought","type":"uint256"},{"name":"min_trx_bought","type":"uint256"},{"name":"deadline","type":"uint256"},{"name":"token_addr","type":"address"}],"name":"tokenToTokenSwapInput","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"tokens_bought","type":"uint256"},{"name":"max_tokens_sold","type":"uint256"},{"name":"max_trx_sold","type":"uint256"},{"name":"deadline","type":"uint256"},{"name":"exchange_addr","type":"address"}],"name":"tokenToExchangeSwapOutput","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"tokens_sold","type":"uint256"},{"name":"min_tokens_bought","type":"uint256"},{"name":"min_trx_bought","type":"uint256"},{"name":"deadline","type":"uint256"},{"name":"recipient","type":"address"},{"name":"exchange_addr","type":"address"}],"name":"tokenToExchangeTransferInput","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"trx_bought","type":"uint256"}],"name":"getTokenToTrxOutputPrice","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"tokens_bought","type":"uint256"},{"name":"max_tokens_sold","type":"uint256"},{"name":"max_trx_sold","type":"uint256"},{"name":"deadline","type":"uint256"},{"name":"recipient","type":"address"},{"name":"token_addr","type":"address"}],"name":"tokenToTokenTransferOutput","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"tokens_sold","type":"uint256"},{"name":"min_tokens_bought","type":"uint256"},{"name":"min_trx_bought","type":"uint256"},{"name":"deadline","type":"uint256"},{"name":"recipient","type":"address"},{"name":"token_addr","type":"address"}],"name":"tokenToTokenTransferInput","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"amount","type":"uint256"},{"name":"min_trx","type":"uint256"},{"name":"min_tokens","type":"uint256"},{"name":"deadline","type":"uint256"}],"name":"removeLiquidity","outputs":[{"name":"","type":"uint256"},{"name":"","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"output_amount","type":"uint256"},{"name":"input_reserve","type":"uint256"},{"name":"output_reserve","type":"uint256"}],"name":"getOutputPrice","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"buyer","type":"address"},{"indexed":true,"name":"trx_sold","type":"uint256"},{"indexed":true,"name":"tokens_bought","type":"uint256"}],"name":"TokenPurchase","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"buyer","type":"address"},{"indexed":true,"name":"tokens_sold","type":"uint256"},{"indexed":true,"name":"trx_bought","type":"uint256"}],"name":"TrxPurchase","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"provider","type":"address"},{"indexed":true,"name":"trx_amount","type":"uint256"},{"indexed":true,"name":"token_amount","type":"uint256"}],"name":"AddLiquidity","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"provider","type":"address"},{"indexed":true,"name":"trx_amount","type":"uint256"},{"indexed":true,"name":"token_amount","type":"uint256"}],"name":"RemoveLiquidity","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"operator","type":"address"},{"indexed":true,"name":"trx_balance","type":"uint256"},{"indexed":true,"name":"token_balance","type":"uint256"}],"name":"Snapshot","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"}]
-        }}
+
  
  
     
            
               
 var contractAddress='TSTWG4e3XwSqE2mF65Z6zBmjRP4wCM3nku';
-var contractAddressFarm='TWPdhbsXMLHJ6hZohKJSAvsnqtHhPpHWKD';
+var contractAddressFarm='TWQVtxyBxfkTx8fyW7XnMB4YQQQRzEcqtJ';
 
 
   var toinvest=0;
@@ -193,12 +192,12 @@ var approvedLP=0;
 async function start() {
 started=1;
   
-const MyContract = await tronWeb.contract().at(contract["CreatedByContract"].address);
+let MyContract = await tronWeb.contract().at(contractAddress);
 let MyContractFarm = await tronWeb.contract().at(contractAddressFarm); 
 
 
    let approved= await MyContract.allowance(myaddress,contractAddressFarm).call(); 
-     approved=window.tronWeb.toDecimal(approved.remaining._hex);
+     approved=window.tronWeb.toDecimal(approved._hex);
    
   if(approved>window.tronWeb.toHex(100000000000000))approvedyes();
 	else approvedno();
@@ -206,12 +205,12 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
 
   
   let earned= await MyContractFarm.checkinterests().call(); 
-    document.getElementById("earned").innerHTML=roundToFour(earned/1000000);
+    document.getElementById("earned").innerHTML=roundToSix(earned/1000000);
 
   
   
   let staked= await MyContractFarm.staked(myaddress).call(); 
-    document.getElementById("staked").innerHTML=roundToFour(staked/1000000);
+    document.getElementById("staked").innerHTML=roundToSix(staked/1000000);
 
   
    let checkcountdown= await MyContractFarm.countdown().call(); 

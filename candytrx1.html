@@ -196,12 +196,12 @@ let MyContract = await tronWeb.contract().at(contractAddress);
 let MyContractFarm = await tronWeb.contract().at(contractAddressFarm); 
 
 
-   let approved= await MyContract.allowance(myaddress,contractAddressFarm).call(); 
+/*  let approved= await MyContract.allowance(myaddress,contractAddressFarm).call(); 
      approved=window.tronWeb.toDecimal(approved._hex);
    
   if(approved>window.tronWeb.toHex(100000000000000))approvedyes();
 	else approvedno();
-
+*/
 
   
   let earned= await MyContractFarm.checkinterests().call(); 

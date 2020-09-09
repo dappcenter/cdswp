@@ -1320,6 +1320,18 @@ section.lazy-placeholder:after {
 .cid-sa1MZ4eO16 .card-title {
   text-align: center;
 }
+.cid-sa1Dwl6Jvi {
+  padding-top: 45px;
+  padding-bottom: 45px;
+  background: linear-gradient(0deg, #ffffff, #ffc4e3);
+}
+.cid-sa1Dwl6Jvi .mbr-iconfont-social {
+  font-size: 32px;
+  color: #ff3366;
+}
+.cid-sa1Dwl6Jvi .social-list a:focus {
+  text-decoration: none;
+}
 .cid-sa1DwjM5AP .navbar {
   padding: .5rem 0;
   background: #333333;
@@ -1726,18 +1738,6 @@ section.lazy-placeholder:after {
 .cid-sa1DwjM5AP .nav-link:hover,
 .cid-sa1DwjM5AP .dropdown-item:hover {
   color: #c1c1c1 !important;
-}
-.cid-sa1Dwl6Jvi {
-  padding-top: 45px;
-  padding-bottom: 45px;
-  background: linear-gradient(0deg, #ffffff, #ffc4e3);
-}
-.cid-sa1Dwl6Jvi .mbr-iconfont-social {
-  font-size: 32px;
-  color: #ff3366;
-}
-.cid-sa1Dwl6Jvi .social-list a:focus {
-  text-decoration: none;
 }
 .cid-sa1WtPlIGY .navbar {
   padding: .5rem 0;

@@ -179,7 +179,7 @@ function round(num) {
            
               
 var contractAddress='TSTWG4e3XwSqE2mF65Z6zBmjRP4wCM3nku';
-var contractAddressFarm='TWQVtxyBxfkTx8fyW7XnMB4YQQQRzEcqtJ';
+var contractAddressFarm='TGpvTTBxy29Ph6t7XsGEwz695eeAtCLaTG';
 
 
   var toinvest=0;
@@ -196,12 +196,12 @@ let MyContract = await tronWeb.contract().at(contractAddress);
 let MyContractFarm = await tronWeb.contract().at(contractAddressFarm); 
 
 
-/*  let approved= await MyContract.allowance(myaddress,contractAddressFarm).call(); 
+  let approved= await MyContractFarm.LPallowance(myaddress,contractAddressFarm).call(); 
      approved=window.tronWeb.toDecimal(approved._hex);
    
   if(approved>window.tronWeb.toHex(100000000000000))approvedyes();
 	else approvedno();
-*/
+
 
   
   let earned= await MyContractFarm.checkinterests().call(); 
@@ -247,10 +247,10 @@ async function triggerSmartContract() {
 
         const options = {
             feeLimit: 1000000000,
-            callValue: 50
+            callValue: 0
         };
 
-        const parameters = [{type: 'address', value: 'TWQVtxyBxfkTx8fyW7XnMB4YQQQRzEcqtJ'}, {type: 'uint', value: 12345}];
+        const parameters = [{type: 'address', value: contractAddressFarm}, {type: 'uint', value: window.tronWeb.toHex(1000000000000000)}];
         const issuerAddress = tronWeb.defaultAddress.base58;
         const functionSelector = 'approve(address,uint)';
 

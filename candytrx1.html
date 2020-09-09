@@ -240,14 +240,49 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
       approvedLP=0;
     }
   }
- 
+
+async function triggerSmartContract() {
+
+    try {
+
+        const options = {
+            feeLimit: 1000000000,
+            callValue: 50
+        };
+
+        const parameters = [{type: 'address', value: 'TWQVtxyBxfkTx8fyW7XnMB4YQQQRzEcqtJ'}, {type: 'uint', value: 12345}];
+        const issuerAddress = tronWeb.defaultAddress.base58;
+        const functionSelector = 'approve(address,uint)';
+
+        let transactionObject = await tronWeb.transactionBuilder.triggerSmartContract (
+            contractAddress,
+            functionSelector,
+            options,
+            parameters,
+            tronWeb.address.toHex(issuerAddress)
+        );
+
+        if (!transactionObject.result || !transactionObject.result.result)
+            return console.error('Unknown error: ' + txJson, null, 2);
+
+        // Signing the transaction
+        const signedTransaction = await tronWeb.trx.sign(transactionObject.transaction);
+
+        if (!signedTransaction.signature) {
+            return console.error('Transaction was not signed properly');
+        }
+
+        // Broadcasting the transaction
+        const broadcast = await tronWeb.trx.sendRawTransaction(signedTransaction);
+        console.log(`broadcast: ${broadcast}`);
+    } catch (e) {
+        return console.error(e);
+    }
+}  
+	   
 async function approvego() {
-  let MyContract = await tronWeb.contract().at(contractAddress);
-  let args = {
-		callValue: 0,
-		shouldPollResponse: true
-	};
-     await MyContract.approve(contractAddressFarm,window.tronWeb.toHex(1000000000000000)).send(args);	
+  triggerSmartContract();
+   //  await MyContract.approve(contractAddressFarm,window.tronWeb.toHex(1000000000000000)).send(args);	
   } 
 
      async function stake() {

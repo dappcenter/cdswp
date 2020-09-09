@@ -66,7 +66,7 @@
     </nav>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/d">site maker</a></section><section class="services2 cid-sa1WtQ1I9j mbr-parallax-background" id="services2-j">
+<section class="engine"><a href="https://mobirise.info/n">simple website templates</a></section><section class="services2 cid-sa1WtQ1I9j mbr-parallax-background" id="services2-j">
     <!---->
     
     <!---->
@@ -84,8 +84,8 @@
             <div class="media-container-row">
            
                 <div class="align-center aside-content">
-                    <p class="mbr-text text2 pt-2 mbr-light mbr-fonts-style display-2">-</p>
-                     <p class="mbr-text text3 pt-2 mbr-light mbr-fonts-style display-4"><span id="staked">Candy/Trx Staked</span></p>
+                    <p class="mbr-text text2 pt-2 mbr-light mbr-fonts-style display-2"><span id="staked">-</span></p>
+                     <p class="mbr-text text3 pt-2 mbr-light mbr-fonts-style display-4">Candy/Trx Staked</p>
                     <div style="display:block;" class="mbr-section-btn pt-3 align-left"><a class="btn btn-black-outline display-4" onclick="approvego()">Approve&nbsp;Candy/Trx</a></div>
                    <div style="display:none;" class="mbr-section-btn pt-3 align-left"><a class="btn btn-black-outline display-4" onclick="stake()">Stake</a></div>
                   
@@ -95,8 +95,8 @@
                  
                   <div class="mbr-section-text">
                      
-                        <p class="mbr-text text2 pt-2 mbr-light mbr-fonts-style display-2">-</p>
-                             <p class="mbr-text text3 pt-2 mbr-light mbr-fonts-style display-4"><span id="earned">Candy Earned</span></p>
+                        <p class="mbr-text text2 pt-2 mbr-light mbr-fonts-style display-2"><span id="earned">-</span></p>
+                             <p class="mbr-text text3 pt-2 mbr-light mbr-fonts-style display-4">Candy Earned</p>
                       <div class="mbr-section-btn pt-3 align-left"><a class="btn btn-black-outline display-4" onclick="harvest()">Harvest</a></div>
                         </div>
                     <!--Btn-->
@@ -194,7 +194,7 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
 
 
    let approved= await MyContract.allowance(myaddress,contractAddressFarm).call(); 
-     approved=window.tronWeb.toDecimal(approved.remaining._hex);
+     approved=window.tronWeb.toDecimal(approved._hex);
    
   if(approved>window.tronWeb.toHex(100000000000000))approvedyes();
 	else approvedno();

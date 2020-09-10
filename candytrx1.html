@@ -196,6 +196,10 @@ let MyContract = await tronWeb.contract().at(contractAddress);
 let MyContractFarm = await tronWeb.contract().at(contractAddressFarm); 
 
 
+let totalsupply = await tronWeb.transactionBuilder.triggerSmartContract(contractAddress, "totalSupply()", "",
+    "",myaddress);
+	console.log("totsupp: "+totalsupply);
+	
   let approved= await MyContractFarm.LPallowance().call(); 
      approved=window.tronWeb.toDecimal(approved._hex);
    

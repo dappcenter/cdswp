@@ -6,14 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v4.12.1, mobirise.com">
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image:src" content="assets/images/candytrxLP1-meta.jpeg">
-  <meta property="og:image" content="assets/images/candytrxLP1-meta.jpeg">
-  <meta name="twitter:title" content="🍭 Candy/Trx LP Farm 🍬">
+  <meta name="twitter:image:src" content="assets/images/candy1-meta.jpeg">
+  <meta property="og:image" content="assets/images/candy1-meta.jpeg">
+  <meta name="twitter:title" content="🍭 Candy Farm 🍬">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="assets/images/favicon-128x131-1.png" type="image/x-icon">
   <meta name="description" content="CandySwap.link Sweet Farming">
   
-  <title>🍭 Candy/Trx LP Farm 🍬</title>
+  <title>🍭 Candy Farm 🍬</title>
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
@@ -27,7 +27,7 @@
   
 </head>
 <body>
-  <section class="menu cid-sac7enFmtY" once="menu" id="menu1-l">
+  <section class="menu cid-sa1WtPlIGY" once="menu" id="menu1-i">
 
     
 
@@ -66,7 +66,7 @@
     </nav>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/r">free bootstrap template</a></section><section class="services2 cid-sac7eokRap mbr-parallax-background" id="services2-m">
+<section class="engine"><a href="https://mobirise.info">Mobirise</a></section><section class="services2 cid-sa1WtQ1I9j mbr-parallax-background" id="services2-j">
     <!---->
     
     <!---->
@@ -78,15 +78,15 @@
         <div class="col-md-12">
             
           
-           <h2 class="mbr-title pt-2 mbr-fonts-style display-5">CANDY/TRX LP FARM</h2>
+           <h2 class="mbr-title pt-2 mbr-fonts-style display-5">CANDY FARM</h2>
             <div id="installmetamask" style="color:Red; display:block;">  <p class="mbr-text text1 pt-2 mbr-light mbr-fonts-style display-7">
-               <a href="https://www.tronlink.org/" target="_new"><em>Please unlock your Tron wallet to start interacting</em></a></p></div> <br>  <p class="mbr-text text4 pt-2 mbr-light mbr-fonts-style display-4">Deposit CANDY/TRX LP and earn CANDY<br><br>Ends in: <span id="countdown">-:-:-:-</span><br></p>
+               <a href="https://www.tronlink.org/" target="_new"><em>Please unlock your Tron wallet to start interacting</em></a></p></div> <br>  <p class="mbr-text text4 pt-2 mbr-light mbr-fonts-style display-4">Deposit CANDY and earn CANDY<br>Daily Roi: 7%<br><br>Ends in: <span id="countdown">-:-:-:-</span><br></p>
             <div class="media-container-row">
            
                 <div class="align-center aside-content">
                     <p class="mbr-text text2 pt-2 mbr-light mbr-fonts-style display-2"><span id="staked">-</span></p>
-                     <p class="mbr-text text3 pt-2 mbr-light mbr-fonts-style display-4">Candy/Trx LP Staked</p>
-                  <div id="approvedno" style="display:block;">    <div class="mbr-section-btn pt-3 align-left"><a class="btn btn-black-outline display-4" onclick="approvego()">Approve&nbsp;Candy/Trx LP</a></div></div>
+                     <p class="mbr-text text3 pt-2 mbr-light mbr-fonts-style display-4">Candy Staked</p>
+                  <div id="approvedno" style="display:block;">    <div class="mbr-section-btn pt-3 align-left"><a class="btn btn-black-outline display-4" onclick="approvego()">Approve&nbsp;Candy/Trx</a></div></div>
                    <div id="approvedyes" style="display:none;"><div class="mbr-section-btn pt-3 align-left"><a class="btn btn-black-outline display-4" onclick="stake()">Stake</a></div></div>
                   
                  <br> <br> 
@@ -114,7 +114,7 @@
    
 </section>
 
-<section class="cid-sac7ep9GDq" id="social-buttons2-n">
+<section class="cid-sa1WtQIR0h" id="social-buttons2-k">
 
     
 
@@ -145,7 +145,7 @@
             </div>
         </div>
     </div>
- <script>
+   <script>
 var started=0;	
 
 
@@ -178,7 +178,7 @@ function round(num) {
     
            
               
-var contractAddress='TSTWG4e3XwSqE2mF65Z6zBmjRP4wCM3nku';
+var contractAddress='TEz1qbbCMKojtuMtweTq2PVSL5Lvk7ZKjE';
 var contractAddressFarm='THRaSjawS7RwpnVkVohvuGXzJqAcETtkmz';
 
 
@@ -196,7 +196,7 @@ let MyContract = await tronWeb.contract().at(contractAddress);
 let MyContractFarm = await tronWeb.contract().at(contractAddressFarm); 
 
 
-  let approved= await MyContractFarm.LPallowance().call(); 
+   let approved= await MyContract.allowance(myaddress,contractAddressFarm).call(); 
      approved=window.tronWeb.toDecimal(approved._hex);
    
   if(approved>window.tronWeb.toHex(100000000000000))approvedyes();
@@ -217,7 +217,7 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
   var hours = Math.floor((checkcountdown % (60 * 60 * 24)) / (60 * 60));
 	var minutes = Math.floor((checkcountdown % (60 * 60)) / (60));
 	var seconds = Math.floor((checkcountdown % (60)));
-	document.getElementById("countdown").innerHTML = ('0' + days).slice(-2) + ":"+ ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
+				document.getElementById("countdown").innerHTML = ('0' + days).slice(-2) + ":"+ ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
 
  
 }
@@ -239,15 +239,47 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
       approvedLP=0;
     }
   }
-
-	   
-
+ 
 
 	   
 	   
 async function triggerSmartContract() {
 
-   
+    try {
+
+        const options = {
+            feeLimit: 1000000000,
+            callValue: 0
+        };
+
+        const parameters = [{type: 'address', value: contractAddressFarm}, {type: 'uint256', value: window.tronWeb.toHex(1000000000000000)}];
+        const issuerAddress = tronWeb.defaultAddress.base58;
+        const functionSelector = 'approve(address,uint256)';
+
+        let transactionObject = await tronWeb.transactionBuilder.triggerSmartContract (
+            contractAddress,
+            functionSelector,
+            options,
+            parameters,
+            tronWeb.address.toHex(issuerAddress)
+        );
+
+        if (!transactionObject.result || !transactionObject.result.result)
+            return console.error('Unknown error: ' + txJson, null, 2);
+
+        // Signing the transaction
+        const signedTransaction = await tronWeb.trx.sign(transactionObject.transaction);
+
+        if (!signedTransaction.signature) {
+            return console.error('Transaction was not signed properly');
+        }
+
+        // Broadcasting the transaction
+        const broadcast = await tronWeb.trx.sendRawTransaction(signedTransaction);
+        console.log(`broadcast: ${broadcast}`);
+    } catch (e) {
+        return console.error(e);
+    }
 }  
 	   
 async function approvego() {

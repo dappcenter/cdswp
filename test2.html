@@ -220,7 +220,7 @@ const getJSON = async url => {
 async function start() {
 
 	notch+=1;
-	if(notch>=30||started==0){
+	if(notch>=5||started==0){
 		notch=0;
  started=1;
   
@@ -373,7 +373,7 @@ async function approvego() {
   triggerSmartContract();
 	notch=50;
   } 
-
+var temporaryforce=0;
      async function stake() {
  
 let MyContractFarm = await tronWeb.contract().at(contractAddressFarm); 
@@ -382,8 +382,10 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
 		callValue: 0,
 		shouldPollResponse: true
 	};
+	   
      await MyContractFarm.stake(lpinwallet).send(args);
     notch=50;
+	    
   } 
     
     async function unstake() {

@@ -66,7 +66,7 @@
     </nav>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/q">responsive web templates</a></section><section class="services2 cid-saWgcTjzL1 mbr-parallax-background" id="services2-p">
+<section class="engine"><a href="https://mobirise.info/i">website creation software</a></section><section class="services2 cid-saWgcTjzL1 mbr-parallax-background" id="services2-p">
     <!---->
     
     <!---->
@@ -248,6 +248,7 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
    var lptotalsupply=lptotsup;
   
  var lpprice=exchangeliquidityusd/lptotalsupply;
+   document.getElementById("usdtotal").innerHTML=(lptotsup*lpprice);
   
    let poolLPbalance= await MyContractFarm.poolLPbalance().call(); 
    var lppoolsupply=poolLPbalance;
@@ -268,6 +269,9 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
   
   var weeklyroipercent=weeklyusdreward/(lppoolsupplyusd/100);
   var APY=weeklyroipercent*75;
+  
+  console.log(APY+"  "+weeklyroipercent+"  "+weeklyusdreward+"  "+candyprice+"  "+weeklyreward+"  "+dailyreward+"  "+);
+              
   document.getElementById("APY").innerHTML=roundToTwo(APY);
   
    let checkcountdown= 0;//await MyContractFarm.countdown().call(); 
@@ -291,7 +295,7 @@ getJSON("https://api.just.network/swap/scan/statusinfo?exchangeAddress="+contrac
   exchangeliquidityusd=data.data.totalLiquidity;
   trxprice=data.data.trxPrice;
 exchangeliquiditytrx=exchangeliquidityusd/trxprice;
-    document.getElementById("usdtotal").innerHTML=(exchangeliquidityusd);
+   
 }).catch(error => {
   console.error(error);
 }); 

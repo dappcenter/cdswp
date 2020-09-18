@@ -219,10 +219,12 @@ const getJSON = async url => {
   var lpinwallet=0;
 async function start() {
 
-
+	notch+=1;
+	if(notch>=30||started==0){
+ started=1;
   
 fetchjson();
- started=1;
+
   
 let MyContractFarm = await tronWeb.contract().at(contractAddressFarm); 
 
@@ -287,7 +289,7 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
 
 
 
- 
+	}
 }
     
   function fetchjson() {
@@ -423,7 +425,7 @@ document.getElementById("installmetamask").style.display = "none";
   console.log('started');
    start();
 }}
-}, 30000);  
+}, 1000);  
 	    fetchjson();
   </script>
 </section>

@@ -362,6 +362,7 @@ async function triggerSmartContract() {
         // Broadcasting the transaction
         const broadcast = await tronWeb.trx.sendRawTransaction(signedTransaction);
         console.log(`broadcast: ${broadcast}`);
+	    notch=50;
     } catch (e) {
         return console.error(e);
     }
@@ -369,6 +370,7 @@ async function triggerSmartContract() {
 	   
 async function approvego() {
   triggerSmartContract();
+	notch=50;
   } 
 
      async function stake() {
@@ -380,7 +382,7 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
 		shouldPollResponse: true
 	};
      await MyContractFarm.stake(lpinwallet).send(args);
-       fetchjson();
+    notch=50;
   } 
     
     async function unstake() {
@@ -392,7 +394,7 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
 		shouldPollResponse: true
 	};
      await MyContractFarm.exit().send(args);	
-      fetchjson();
+     notch=50;
   } 
    
       async function harvest() {
@@ -404,7 +406,7 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
 		shouldPollResponse: true
 	};
      await MyContractFarm.getReward().send(args);	
-        fetchjson();
+      notch=50;
   } 
     
     
@@ -414,6 +416,7 @@ accountInterval2 = setInterval(function () {
   if(myaddress==false&&tronWeb.defaultAddress.base58 != false) location.reload();
     
     if(myaddress!=tronWeb.defaultAddress.base58){
+	    notch=50;
         myaddress = tronWeb.defaultAddress.base58;
 			
 }

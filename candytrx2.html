@@ -66,7 +66,7 @@
     </nav>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/r">bootstrap template</a></section><section class="services2 cid-saWgcTjzL1 mbr-parallax-background" id="services2-p">
+<section class="engine"><a href="https://mobirise.info">Mobirise</a></section><section class="services2 cid-saWgcTjzL1 mbr-parallax-background" id="services2-p">
     <!---->
     
     <!---->
@@ -252,12 +252,12 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
   
    let poolLPbalance= await MyContractFarm.poolLPbalance().call(); 
    var lppoolsupply=poolLPbalance;
-   document.getElementById("lptotal").innerHTML=roundToSix(lppoolsupply/1000000);
+   document.getElementById("lptotal").innerHTML=roundToTwo(lppoolsupply/1000000);
   var lppoolsupplyusd=poolLPbalance*lpprice;
-    document.getElementById("usdtotal").innerHTML=roundToSix(lppoolsupplyusd);
+    document.getElementById("usdtotal").innerHTML=roundToTwo(lppoolsupplyusd);
   
     let LPmybalance= await MyContractFarm.LPmyBalance().call(); 
-    document.getElementById("mylpbalance").innerHTML=roundToSix(LPmybalance/1000000);
+    document.getElementById("mylpbalance").innerHTML=roundToTwo(LPmybalance/1000000);
    lpinwallet=LPmybalance;
   
   let dailyreward= await MyContractFarm.dailyreward().call(); 

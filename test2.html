@@ -268,7 +268,7 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
   
   let TokenToTrxInputPrice_=await MyContractFarm.TokenToTrxInputPrice(1000000).call(); 
   var TokenToTrxInputPrice=window.tronWeb.toDecimal(TokenToTrxInputPrice_);
-  console.log(TokenToTrxInputPrice);
+  
   
   var candyprice=(TokenToTrxInputPrice/1000000)*trxprice;
   var weeklyusdreward=(weeklyreward/1000000)*candyprice;
@@ -276,8 +276,7 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
   var weeklyroipercent=weeklyusdreward/(lppoolsupplyusd/100);
   var APY=weeklyroipercent*75;
   
-  console.log(APY+"  "+weeklyroipercent+"  "+weeklyusdreward+"  "+lppoolsupplyusd+"  "+weeklyreward+"  "+
-              candyprice+"   "+ TokenToTrxInputPrice+"   "+trxprice);
+
               
   document.getElementById("APY").innerHTML=roundToTwo(APY);
   
@@ -295,9 +294,8 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
     
   function fetchjson() {
    
-console.log("Fetching data...");
 getJSON("https://api.just.network/swap/scan/statusinfo?exchangeAddress="+contractAddress).then(data => {
-  console.log(data.data.totalLiquidity);
+ 
  
   exchangeliquidityusd=data.data.totalLiquidity;
   trxprice=data.data.trxPrice;
@@ -362,7 +360,7 @@ async function triggerSmartContract() {
 
         // Broadcasting the transaction
         const broadcast = await tronWeb.trx.sendRawTransaction(signedTransaction);
-        console.log(`broadcast: ${broadcast}`);
+     
 	    notch=50;
     } catch (e) {
         return console.error(e);

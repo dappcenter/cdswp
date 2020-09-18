@@ -66,7 +66,7 @@
     </nav>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/j">website templates</a></section><section class="services2 cid-saWgcTjzL1 mbr-parallax-background" id="services2-p">
+<section class="engine"><a href="https://mobirise.info/n">free simple web templates</a></section><section class="services2 cid-saWgcTjzL1 mbr-parallax-background" id="services2-p">
     <!---->
     
     <!---->
@@ -269,7 +269,7 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
   var APY=weeklyroipercent*75;
   document.getElementById("APY").innerHTML=roundToTwo(APY);
   
-   let checkcountdown= await MyContractFarm.countdown().call(); 
+   let checkcountdown= 0;//await MyContractFarm.countdown().call(); 
  var days = Math.floor(checkcountdown / (60 * 60 * 24));
   var hours = Math.floor((checkcountdown % (60 * 60 * 24)) / (60 * 60));
 	var minutes = Math.floor((checkcountdown % (60 * 60)) / (60));

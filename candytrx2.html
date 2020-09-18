@@ -66,7 +66,7 @@
     </nav>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/n">free simple site templates</a></section><section class="services2 cid-saWgcTjzL1 mbr-parallax-background" id="services2-p">
+<section class="engine"><a href="https://mobirise.info/v">free html templates</a></section><section class="services2 cid-saWgcTjzL1 mbr-parallax-background" id="services2-p">
     <!---->
     
     <!---->
@@ -236,12 +236,12 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
 
 
   
-  let earned= await MyContractFarm.checkinterests().call(); 
+  let earned= await MyContractFarm.earned(myaddress).call(); 
     document.getElementById("earned").innerHTML=roundToSix(earned/1000000);
 
   
   
-  let staked= await MyContractFarm.staked(myaddress).call(); 
+  let staked= await MyContractFarm.balanceOf(myaddress).call(); 
     document.getElementById("staked").innerHTML=roundToSix(staked/1000000);
  
    let lptotsup= await MyContractFarm.LPtotalSupply().call(); 

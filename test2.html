@@ -221,8 +221,7 @@ async function start() {
 
 
   
-if(notch>150||started==0)fetchjson();
-  notch+=1;
+fetchjson();
  started=1;
   
 let MyContractFarm = await tronWeb.contract().at(contractAddressFarm); 
@@ -424,7 +423,8 @@ document.getElementById("installmetamask").style.display = "none";
   console.log('started');
    start();
 }}
-}, 2000);   
+}, 30000);  
+	    fetchjson();
   </script>
 </section>
 

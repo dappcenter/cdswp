@@ -84,7 +84,7 @@
            <div class="media-container-row">
            
                 <div class="align-center aside-content">
-                    <p class="mbr-text text5 pt-2 mbr-light mbr-fonts-style display-4"><strong>Pool Rate<br></strong><span id="candyweekly">-</span> Candy / Week<br>APY: <span id="APY">-</span>%<br><br></p>
+                    <p class="mbr-text text5 pt-2 mbr-light mbr-fonts-style display-4"><strong>Pool Stats<br></strong>APY: <span id="APY">-</span>%<br>Daily Roi: <span id="dailyroi">-</span>%<br><br></p>
                </div>
                 <div class="align-center aside-content">
                  
@@ -123,7 +123,7 @@
                 
         <div class="mbr-section-btn pt-3 align-left"><a class="btn btn-black-outline display-4" onclick="unstake()">Harvest &amp; Unstake</a></div>
                 </div> <p class="mbr-text text7 pt-2 mbr-light mbr-fonts-style display-4"><br>My Wallet: <span id="mylpbalance">-</span> LP
-<br><a href="https://justswap.org/?lang=en-US#/home?tokenAddress=TEz1qbbCMKojtuMtweTq2PVSL5Lvk7ZKjE&type=add" target="_blank"><em>Get LP tokens</em></a><br></p><br> 
+<br><em><a href="https://justswap.org/?lang=en-US#/home?tokenAddress=TEz1qbbCMKojtuMtweTq2PVSL5Lvk7ZKjE&type=add" target="_blank">Get LP tokens</a>&nbsp;(<a href="https://medium.com/@candyswap/candyswap-farm-how-to-use-justswap-734d2f35e94d" target="_blank"><i><strong>?</strong></i></a>)</em><br></p><br> 
         </div>
     </div>
    
@@ -261,21 +261,19 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
    lpinwallet=LPmybalance;
   
   let dailyreward= await MyContractFarm.dailyreward().call(); 
-  var weeklyreward= dailyreward*7;
-  document.getElementById("candyweekly").innerHTML=roundToSix(weeklyreward/1000000);
+ 
+ 
   
   let TokenToTrxInputPrice_=await MyContractFarm.TokenToTrxInputPrice(1000000).call(); 
   var TokenToTrxInputPrice=window.tronWeb.toDecimal(TokenToTrxInputPrice_);
   console.log(TokenToTrxInputPrice);
   
   var candyprice=(TokenToTrxInputPrice/1000000)*trxprice;
-  var weeklyusdreward=(weeklyreward/1000000)*candyprice;
+  var dailylyusdreward=(dailyreward/1000000)*candyprice;
   
-  var weeklyroipercent=weeklyusdreward/(lppoolsupplyusd/100);
-  var APY=weeklyroipercent*75;
-  
-  console.log(APY+"  "+weeklyroipercent+"  "+weeklyusdreward+"  "+lppoolsupplyusd+"  "+weeklyreward+"  "+
-              candyprice+"   "+ TokenToTrxInputPrice+"   "+trxprice);
+  var dailyroipercent=dailyusdreward/(lppoolsupplyusd/100);
+  var APY=dailyroipercent*365;
+   document.getElementById("dailyroi").innerHTML=roundToTwo(dailyroipercent);
               
   document.getElementById("APY").innerHTML=roundToTwo(APY);
   

@@ -6,14 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v4.12.1, mobirise.com">
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image:src" content="assets/images/farms-meta.jpeg">
-  <meta property="og:image" content="assets/images/farms-meta.jpeg">
-  <meta name="twitter:title" content="🍭 Farms 🍬">
+  <meta name="twitter:image:src" content="assets/images/endedfarms-meta.jpeg">
+  <meta property="og:image" content="assets/images/endedfarms-meta.jpeg">
+  <meta name="twitter:title" content="🍭 Farms 🍬 ENDED">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="assets/images/favicon-128x131-1.png" type="image/x-icon">
   <meta name="description" content="CandySwap Farms">
   
-  <title>🍭 Farms 🍬</title>
+  <title>🍭 Farms 🍬 ENDED</title>
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
@@ -27,7 +27,7 @@
   
 </head>
 <body>
-  <section class="services1 cid-sb2ueNWKWR mbr-parallax-background" id="services1-t">
+  <section class="services1 cid-sa1MZ4eO16 mbr-parallax-background" id="services1-d">
     <!---->
     
     <!---->
@@ -40,40 +40,49 @@
             <!--Titles-->
             <div class="title pb-5 col-12">
                 <h2 class="align-left pb-3 mbr-fonts-style display-1">Candy Farm</h2>
-               <div id="installmetamask" style="color:Red; display:block;">  <p class="mbr-text text1 pt-2 mbr-light mbr-fonts-style display-7">
-               <a href="https://www.tronlink.org/" target="_new"><em>Please unlock your Tron wallet to start interacting</em></a></p></div>
+             
                 
             </div>
             <!--Card-1-->
-            <div class="card col-12 col-md-6 p-3 last-child">
+            <div class="card col-12 col-md-6 p-3">
                 <div class="card-wrapper">
                    
                     <div class="card-box">
                         <h4 class="card-title mbr-fonts-style display-5">
-                            CANDY / TRX&nbsp;<strong>LP</strong></h4>
-                        <p class="mbr-text mbr-fonts-style display-4">Deposit CANDYTRX LP&nbsp;<br>Earn CANDY
+                            CANDY</h4>
+                        <p class="mbr-text mbr-fonts-style display-4">Deposit CANDY&nbsp;<br>Earn CANDY
 <br>
-                          <br><em><strong>30000 </strong>Candy in 2 Weeks</em><br><br>Starts in<br>-:-:-:-</p>
+                          <br>Finished</p>
                         <!--Btn-->
-                        <div class="mbr-section-btn align-center"><a href="candytrx2.html" class="btn btn-secondary display-4">
+                        <div class="mbr-section-btn align-center"><a href="candy1.html" class="btn btn-secondary display-4">
                                 SELECT</a></div>
                     </div>
                 </div>
             </div>
             <!--Card-2-->
-            
+            <div class="card col-12 col-md-6 p-3 last-child">
+                <div class="card-wrapper">
+                   
+                    <div class="card-box">
+                        <h4 class="card-title mbr-fonts-style display-5">CANDY/TRX LP</h4>
+                        <p class="mbr-text mbr-fonts-style display-4">Deposit CANDY/TRX LP 
+<br>Earn CANDY 
+<br>
+<br>Finished</p>
+                        <!--Btn-->
+                        <div class="mbr-section-btn align-center"><a href="candytrxLP1.html" class="btn btn-danger display-4">SELECT</a></div>
+                    </div>
+                </div>
+            </div>
             <!--Card-3-->
             
             <!--Card-4-->
             
-           
         </div>
-      <p class="mbr-text1 mbr-fonts-style display-7"><em>
-                            <a href="endedfarms.html">Ended Farms</a></em></p>
     </div>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/c">site builder</a></section><section class="cid-sb2ueOUVH7" id="social-buttons2-u">
+<section class="engine"><a href="https://mobirise.info/u">bootstrap responsive templates</a></section><section class="cid-sa1Dwl6Jvi" id="social-buttons2-b">
 
     
 
@@ -104,78 +113,10 @@
             </div>
         </div>
     </div>
-   <script>
-var started=0;	
-
-
-function getUrlVars() {
-			var vars = {};
-			var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
-				vars[key] = value;
-			});
-	return vars;
-}
-	
-
-function roundToFour(num) {
-	return +(Math.floor(num + "e+4") + "e-4");
-}
-function roundToTwo(num) {
-	return +(Math.floor(num + "e+2") + "e-2");
-}
-function round(num) {
-	return +(Math.floor(num + "e+0") + "e-0");
-}
-  
-
-var contractAddress='TVER8rGPH75aJRkV9VkK52QWircoXMH5EK';
-
-
-  var toinvest=0;
-  var myaddress;
-
-
-
-
-    
-async function start() {
-started=1;
-  
-let MyContractFarm = await tronWeb.contract().at(contractAddress);
-
-  
-   
-   let checkcountdown= await MyContractFarm.countdownstart().call(); 
- var days = Math.floor(checkcountdown / (60 * 60 * 24));
-  var hours = Math.floor((checkcountdown % (60 * 60 * 24)) / (60 * 60));
-	var minutes = Math.floor((checkcountdown % (60 * 60)) / (60));
-	var seconds = Math.floor((checkcountdown % (60)));
-				document.getElementById("countdown").innerHTML = ('0' + days).slice(-2) + ":"+ ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
-  
-}
-    
-    
-    
-    
-accountInterval2 = setInterval(function () {
-  if(myaddress==false&&tronWeb.defaultAddress.base58 != false) location.reload();
-    
-    if(myaddress!=tronWeb.defaultAddress.base58){
-        myaddress = tronWeb.defaultAddress.base58;
-}
-  
-	if (typeof window.tronWeb !== 'undefined'){		
-
-  if(tronWeb.defaultAddress.base58 != false){
-document.getElementById("installmetamask").style.display = "none";
-  console.log('started');
-   start();
-}}
-}, 2000);   
-  </script>
+ 
 </section>
 
-<section class="menu cid-sb2uePoJyw" once="menu" id="menu1-v">
+<section class="menu cid-sa1DwjM5AP" once="menu" id="menu1-9">
 
     
 

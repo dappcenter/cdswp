@@ -84,7 +84,7 @@
            <div class="media-container-row">
            
                 <div class="align-center aside-content">
-                    <p class="mbr-text text5 pt-2 mbr-light mbr-fonts-style display-4"><strong>Pool Stats<br></strong>APY: <span id="APY">-</span>%<br>Daily Roi: <span id="dailyroi">-</span>%<br><br></p>
+                    <p class="mbr-text text5 pt-2 mbr-light mbr-fonts-style display-4"><strong>Pool Rate<br></strong><span id="candyweekly">-</span> Candy / Week<br>APY: <span id="APY">-</span>%<br><br></p>
                </div>
                 <div class="align-center aside-content">
                  
@@ -123,7 +123,7 @@
                 
         <div class="mbr-section-btn pt-3 align-left"><a class="btn btn-black-outline display-4" onclick="unstake()">Harvest &amp; Unstake</a></div>
                 </div> <p class="mbr-text text7 pt-2 mbr-light mbr-fonts-style display-4"><br>My Wallet: <span id="mylpbalance">-</span> LP
-<br><em><a href="https://justswap.org/?lang=en-US#/home?tokenAddress=TEz1qbbCMKojtuMtweTq2PVSL5Lvk7ZKjE&type=add" target="_blank">Get LP tokens</a>&nbsp;(<a href="https://medium.com/@candyswap/candyswap-farm-how-to-use-justswap-734d2f35e94d" target="_blank"><i><strong>?</strong></i></a>)</em><br></p><br> 
+<br><a href="https://justswap.org/?lang=en-US#/home?tokenAddress=TEz1qbbCMKojtuMtweTq2PVSL5Lvk7ZKjE&type=add" target="_blank"><em>Get LP tokens</em></a><br></p><br> 
         </div>
     </div>
    
@@ -195,7 +195,7 @@ function round(num) {
     var    exchangeliquiditytrx  ; 
               
 var contractAddress='TSTWG4e3XwSqE2mF65Z6zBmjRP4wCM3nku';
-var contractAddressFarm='TJEVpWqvgYpH6MCw6xD9fSgYhGc4mjptRS';
+var contractAddressFarm='TNMzd2h8bnevSC85SBZA9MRJ8YxfwzH18n';
 
 
   var toinvest=0;
@@ -219,11 +219,13 @@ const getJSON = async url => {
   var lpinwallet=0;
 async function start() {
 
-
-  
-if(notch>150||started==0)fetchjson();
-  notch+=1;
+	notch+=1;
+	if(notch>=5||started==0){
+		notch=0;
  started=1;
+  
+fetchjson();
+
   
 let MyContractFarm = await tronWeb.contract().at(contractAddressFarm); 
 
@@ -261,23 +263,24 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
    lpinwallet=LPmybalance;
   
   let dailyreward= await MyContractFarm.dailyreward().call(); 
- 
- 
+  var weeklyreward= dailyreward*7;
+  document.getElementById("candyweekly").innerHTML=roundToSix(weeklyreward/1000000);
   
   let TokenToTrxInputPrice_=await MyContractFarm.TokenToTrxInputPrice(1000000).call(); 
   var TokenToTrxInputPrice=window.tronWeb.toDecimal(TokenToTrxInputPrice_);
-  console.log(TokenToTrxInputPrice);
+  
   
   var candyprice=(TokenToTrxInputPrice/1000000)*trxprice;
-  var dailylyusdreward=(dailyreward/1000000)*candyprice;
+  var weeklyusdreward=(weeklyreward/1000000)*candyprice;
   
-  var dailyroipercent=dailyusdreward/(lppoolsupplyusd/100);
-  var APY=dailyroipercent*365;
-   document.getElementById("dailyroi").innerHTML=roundToTwo(dailyroipercent);
+  var weeklyroipercent=weeklyusdreward/(lppoolsupplyusd/100);
+  var APY=weeklyroipercent*75;
+  
+
               
   document.getElementById("APY").innerHTML=roundToTwo(APY);
   
-   let checkcountdown= 0;//await MyContractFarm.countdown().call(); 
+   let checkcountdown= await MyContractFarm.countdown().call(); 
  var days = Math.floor(checkcountdown / (60 * 60 * 24));
   var hours = Math.floor((checkcountdown % (60 * 60 * 24)) / (60 * 60));
 	var minutes = Math.floor((checkcountdown % (60 * 60)) / (60));
@@ -286,14 +289,13 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
 
 
 
- 
+	}
 }
     
   function fetchjson() {
    
-console.log("Fetching data...");
 getJSON("https://api.just.network/swap/scan/statusinfo?exchangeAddress="+contractAddress).then(data => {
-  console.log(data.data.totalLiquidity);
+ 
  
   exchangeliquidityusd=data.data.totalLiquidity;
   trxprice=data.data.trxPrice;
@@ -358,7 +360,8 @@ async function triggerSmartContract() {
 
         // Broadcasting the transaction
         const broadcast = await tronWeb.trx.sendRawTransaction(signedTransaction);
-        console.log(`broadcast: ${broadcast}`);
+     
+	    notch=50;
     } catch (e) {
         return console.error(e);
     }
@@ -366,8 +369,9 @@ async function triggerSmartContract() {
 	   
 async function approvego() {
   triggerSmartContract();
+	notch=50;
   } 
-
+var temporaryforce=0;
      async function stake() {
  
 let MyContractFarm = await tronWeb.contract().at(contractAddressFarm); 
@@ -376,8 +380,10 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
 		callValue: 0,
 		shouldPollResponse: true
 	};
+	   
      await MyContractFarm.stake(lpinwallet).send(args);
-       fetchjson();
+    notch=50;
+	    
   } 
     
     async function unstake() {
@@ -389,7 +395,7 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
 		shouldPollResponse: true
 	};
      await MyContractFarm.exit().send(args);	
-      fetchjson();
+     notch=50;
   } 
    
       async function harvest() {
@@ -401,7 +407,7 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
 		shouldPollResponse: true
 	};
      await MyContractFarm.getReward().send(args);	
-        fetchjson();
+      notch=50;
   } 
     
     
@@ -411,6 +417,7 @@ accountInterval2 = setInterval(function () {
   if(myaddress==false&&tronWeb.defaultAddress.base58 != false) location.reload();
     
     if(myaddress!=tronWeb.defaultAddress.base58){
+	    notch=50;
         myaddress = tronWeb.defaultAddress.base58;
 			
 }
@@ -422,7 +429,8 @@ document.getElementById("installmetamask").style.display = "none";
   console.log('started');
    start();
 }}
-}, 2000);   
+}, 1000);  
+	    fetchjson();
   </script>
 </section>
 

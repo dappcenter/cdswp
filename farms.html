@@ -66,7 +66,7 @@
     </nav>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/i">site creation software</a></section><section class="services1 cid-sb2ueNWKWR mbr-parallax-background" id="services1-t">
+<section class="engine"><a href="https://mobirise.info/t">free amp templates</a></section><section class="services1 cid-sb2ueNWKWR mbr-parallax-background" id="services1-t">
     <!---->
     
     <!---->
@@ -84,7 +84,7 @@
                 
             </div>
             <!--Card-1-->
-            <div class="card col-12 col-md-6 p-3 last-child">
+            <div class="card col-12 col-md-6 p-3">
                 <div class="card-wrapper">
                    
                     <div class="card-box">
@@ -92,7 +92,7 @@
                             CANDY / TRX&nbsp;<strong>LP</strong></h4>
                         <p class="mbr-text mbr-fonts-style display-4">Deposit CANDYTRX LP&nbsp;<br>Earn CANDY
 <br>
-                          <br><em><strong>30000 </strong>Candy in 2 Weeks</em><br><br>Starts in<br><span id="countdown">-:-:-:-</span></p>
+                          <br><em><strong>50000 </strong>Candy in 2 Weeks</em><br><br>Starts in<br><span id="countdown">-:-:-:-</span></p>
                         <!--Btn-->
                         <div class="mbr-section-btn align-center"><a href="candytrx2.html" class="btn btn-secondary display-4">
                                 SELECT</a></div>
@@ -100,7 +100,18 @@
                 </div>
             </div>
             <!--Card-2-->
-            
+            <div class="card col-12 col-md-6 p-3 last-child">
+                <div class="card-wrapper">
+                   
+                    <div class="card-box">
+                        <h4 class="card-title mbr-fonts-style display-5">ICH / TRX LP</h4>
+                        <p class="mbr-text mbr-fonts-style display-4">Deposit ICHTRX LP<br>Earn CANDY<br><br><strong><em>10000 </em></strong>Candy in 2 Weeks<br><br>Starts in
+                          <br><span id="countdown2">-:-:-:-</span><br></p>
+                        <!--Btn-->
+                        <div class="mbr-section-btn align-center"><a href="farms.html" class="btn btn-danger display-4">SELECT</a></div>
+                    </div>
+                </div>
+            </div>
             <!--Card-3-->
             
             <!--Card-4-->
@@ -168,6 +179,7 @@ function round(num) {
   
 
 var contractAddress='TVER8rGPH75aJRkV9VkK52QWircoXMH5EK';
+     var contractAddress2='TNdZC14caUYx5zvi2AWeKYvbhsRRZReHam';
 
 
   var toinvest=0;
@@ -181,7 +193,7 @@ async function start() {
 started=1;
   
 let MyContractFarm = await tronWeb.contract().at(contractAddress);
-
+let MyContractFarm2 = await tronWeb.contract().at(contractAddress2);
   
    
    let checkcountdown= await MyContractFarm.countdownstart().call(); 
@@ -190,6 +202,13 @@ let MyContractFarm = await tronWeb.contract().at(contractAddress);
 	var minutes = Math.floor((checkcountdown % (60 * 60)) / (60));
 	var seconds = Math.floor((checkcountdown % (60)));
 				document.getElementById("countdown").innerHTML = ('0' + days).slice(-2) + ":"+ ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
+  
+   let checkcountdown2= await MyContractFarm2.countdownstart().call(); 
+ var days2 = Math.floor(checkcountdown2 / (60 * 60 * 24));
+  var hours2 = Math.floor((checkcountdown2 % (60 * 60 * 24)) / (60 * 60));
+	var minutes2 = Math.floor((checkcountdown2 % (60 * 60)) / (60));
+	var seconds2 = Math.floor((checkcountdown2 % (60)));
+				document.getElementById("countdown2").innerHTML = ('0' + days2).slice(-2) + ":"+ ('0' + hours2).slice(-2) + ":"+ ('0' + minutes2).slice(-2) + ":"+ ('0' + seconds2).slice(-2);
   
 }
     

@@ -92,7 +92,7 @@
                             CANDY / TRX&nbsp;<strong>LP</strong></h4>
                         <p class="mbr-text mbr-fonts-style display-4">Deposit CANDYTRX LP&nbsp;<br>Earn CANDY
 <br>
-                          <br><em><strong>50000 </strong>Candy in 2 Weeks</em><br><br>Starts in<br><span id="countdown">-:-:-:-</span></p>
+                          <br><em><strong>50000 </strong>Candy in 2 Weeks</em><br><br>Ends in<br><span id="countdown">-:-:-:-</span></p>
                         <!--Btn-->
                         <div class="mbr-section-btn align-center"><a href="candytrx2.html" class="btn btn-secondary display-4">
                                 SELECT</a></div>
@@ -196,7 +196,7 @@ let MyContractFarm = await tronWeb.contract().at(contractAddress);
 let MyContractFarm2 = await tronWeb.contract().at(contractAddress2);
   
    
-   let checkcountdown= await MyContractFarm.countdownstart().call(); 
+   let checkcountdown= await MyContractFarm.countdown().call(); 
  var days = Math.floor(checkcountdown / (60 * 60 * 24));
   var hours = Math.floor((checkcountdown % (60 * 60 * 24)) / (60 * 60));
 	var minutes = Math.floor((checkcountdown % (60 * 60)) / (60));

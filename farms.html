@@ -105,7 +105,7 @@
                    
                     <div class="card-box">
                         <h4 class="card-title mbr-fonts-style display-5">ICH / TRX LP</h4>
-                        <p class="mbr-text mbr-fonts-style display-4">Stake ICHTRX LP<br>Earn CANDY<br><br><em><strong>4500 </strong>Candy in 1 Week</em><br><br>Starts in
+                        <p class="mbr-text mbr-fonts-style display-4">Stake ICHTRX LP<br>Earn CANDY<br><br><em><strong>4500 </strong>Candy in 1 Week</em><br><br>Ends in
                           <br><span id="countdown2">-:-:-:-</span><br></p>
                         <!--Btn-->
                         <div class="mbr-section-btn align-center"><a href="cherrytrx1.html" class="btn btn-danger display-4">SELECT</a></div>
@@ -202,7 +202,7 @@ let MyContractFarm2 = await tronWeb.contract().at(contractAddress2);
 	var seconds = Math.floor((checkcountdown % (60)));
 				document.getElementById("countdown").innerHTML = ('0' + days).slice(-2) + ":"+ ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
   
-   let checkcountdown2= await MyContractFarm2.countdownstart().call(); 
+   let checkcountdown2= await MyContractFarm2.countdown().call(); 
  var days2 = Math.floor(checkcountdown2 / (60 * 60 * 24));
   var hours2 = Math.floor((checkcountdown2 % (60 * 60 * 24)) / (60 * 60));
 	var minutes2 = Math.floor((checkcountdown2 % (60 * 60)) / (60));

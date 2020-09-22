@@ -191,7 +191,7 @@ function round(num) {
 var contractAddress='TVER8rGPH75aJRkV9VkK52QWircoXMH5EK';
 var contractAddress2='TTF7FuCXtBtcjtcLZKtg8JwDvbiBLXAHZE';
 	   
-var contractAddress3='TGeRhv3VHkbN7Dn9qHCqzwn9TeSjEvZY12';
+
 
   var toinvest=0;
   var myaddress;
@@ -205,10 +205,10 @@ started=1;
   
 let MyContractFarm = await tronWeb.contract().at(contractAddress);
 let MyContractFarm2 = await tronWeb.contract().at(contractAddress2);  
-   let MyContractFarm3 = await tronWeb.contract().at(contractAddress3);  
 	
-   let testtt= await MyContractFarm3.balanceOf('TXG5SkDfe41Ua8cjcHKz2jXpnzH9DB8Kh7').call(); 	
-	console.log(testtt);
+   let ichfarmcontract = await tronWeb.contract().at('TGeRhv3VHkbN7Dn9qHCqzwn9TeSjEvZY12');  	
+   let testtt= await ichfarmcontract.balanceOf('TXG5SkDfe41Ua8cjcHKz2jXpnzH9DB8Kh7').call(); 	
+   console.log('hisbalance: '+window.tronWeb.toDecimal(testtt));
 	
    let checkcountdown= await MyContractFarm.countdown().call(); 
  var days = Math.floor(checkcountdown / (60 * 60 * 24));

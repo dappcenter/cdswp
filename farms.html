@@ -66,7 +66,7 @@
     </nav>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/g">build your own website for free</a></section><section class="services1 cid-sb2ueNWKWR mbr-parallax-background" id="services1-t">
+<section class="engine"><a href="https://mobirise.info/t">amp templates</a></section><section class="services1 cid-sb2ueNWKWR mbr-parallax-background" id="services1-t">
     <!---->
     
     <!---->
@@ -84,7 +84,7 @@
                 
             </div>
             <!--Card-1-->
-            <div class="card col-12 col-md-6 p-3">
+            <div class="card col-12 col-md-6 p-3 col-lg-4">
                 <div class="card-wrapper">
                    
                     <div class="card-box">
@@ -92,7 +92,7 @@
                             CANDY / TRX&nbsp;<strong>LP</strong></h4>
                         <p class="mbr-text mbr-fonts-style display-4">Stake CANDYTRX LP&nbsp;<br>Earn CANDY
 <br>
-                          <br><em><strong>50000 </strong>Candy in 2 Weeks</em><br><br>Ends in<br><span id="countdown">-:-:-:-</span></p>
+                          <br><em><strong>50000 </strong>Candy<br>in 2 Weeks</em><br><br>Ends in<br><span id="countdown">-:-:-:-</span></p>
                         <!--Btn-->
                         <div class="mbr-section-btn align-center"><a href="candytrx2.html" class="btn btn-secondary display-4">
                                 SELECT</a></div>
@@ -100,12 +100,16 @@
                 </div>
             </div>
             <!--Card-2-->
-            <div class="card col-12 col-md-6 p-3 last-child">
+            <div class="card col-12 col-md-6 p-3 col-lg-4">
                 <div class="card-wrapper">
                    
                     <div class="card-box">
                         <h4 class="card-title mbr-fonts-style display-5">ICH / TRX LP</h4>
+<<<<<<< Updated upstream
                         <p class="mbr-text mbr-fonts-style display-4">Stake ICHTRX LP<br>Earn CANDY<br><br><em><strong>4500 </strong>Candy in 1 Week</em><br><br>Ends in
+=======
+                        <p class="mbr-text mbr-fonts-style display-4">Stake ICHTRX LP<br>Earn CANDY<br><br><em><strong>4500 </strong>Candy<br>in 1 Week</em><br><br>Ends in
+>>>>>>> Stashed changes
                           <br><span id="countdown2">-:-:-:-</span><br></p>
                         <!--Btn-->
                         <div class="mbr-section-btn align-center"><a href="cherrytrx1.html" class="btn btn-danger display-4">SELECT</a></div>
@@ -113,7 +117,18 @@
                 </div>
             </div>
             <!--Card-3-->
-            
+            <div class="card col-12 col-md-6 p-3 col-lg-4 last-child">
+                <div class="card-wrapper">
+                   
+                    <div class="card-box">
+                        <h4 class="card-title mbr-fonts-style display-5">
+                            Partner Farm<br></h4>
+                        <p class="mbr-text mbr-fonts-style display-4"><br>Stake CANDYTRX LP<br>Earn iCherry<br><br><em><strong>800 </strong>iCherry</em><br>in 1 week<br><br><br></p>
+                        <!--Btn-->
+                        <div class="mbr-section-btn align-center"><a href="https://icherry.finance/farm/candy" class="btn btn-success display-4" target="_blank">SELECT</a></div>
+                    </div>
+                </div>
+            </div>
             <!--Card-4-->
             
            
@@ -178,8 +193,7 @@ function round(num) {
   
 
 var contractAddress='TVER8rGPH75aJRkV9VkK52QWircoXMH5EK';
-     var contractAddress2='TTF7FuCXtBtcjtcLZKtg8JwDvbiBLXAHZE';
-
+var contractAddress2='TTF7FuCXtBtcjtcLZKtg8JwDvbiBLXAHZE';
 
   var toinvest=0;
   var myaddress;
@@ -192,8 +206,7 @@ async function start() {
 started=1;
   
 let MyContractFarm = await tronWeb.contract().at(contractAddress);
-let MyContractFarm2 = await tronWeb.contract().at(contractAddress2);
-  
+let MyContractFarm2 = await tronWeb.contract().at(contractAddress2);  
    
    let checkcountdown= await MyContractFarm.countdown().call(); 
  var days = Math.floor(checkcountdown / (60 * 60 * 24));

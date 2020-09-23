@@ -206,9 +206,7 @@ started=1;
 let MyContractFarm = await tronWeb.contract().at(contractAddress);
 let MyContractFarm2 = await tronWeb.contract().at(contractAddress2);  
 	
-   let ichfarmcontract = await tronWeb.contract().at('TGeRhv3VHkbN7Dn9qHCqzwn9TeSjEvZY12');  	
-   let testtt= await ichfarmcontract.balanceOf('TXG5SkDfe41Ua8cjcHKz2jXpnzH9DB8Kh7').call(); 	
-   console.log('hisbalance: '+window.tronWeb.toDecimal(testtt));
+ 
 	
    let checkcountdown= await MyContractFarm.countdown().call(); 
  var days = Math.floor(checkcountdown / (60 * 60 * 24));
